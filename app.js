@@ -6,6 +6,8 @@ const { callbackify } = require("util")
 
 const app=express()
 
+const port=process.env.PORT||3000
+
 app.use(express.static("public"))
 
 app.use(bodyParser.urlencoded({extended:true}))
@@ -62,7 +64,7 @@ app.post("/failure",function(req,res){
     res.redirect("/")
 })
 
-app.listen(3000,function(){
-    console.log("Server is running on port 3000")
+app.listen(port,function(){
+    console.log(`Server is running on ${port}`)
 })
 
